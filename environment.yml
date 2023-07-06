@@ -1,4 +1,4 @@
-name: Crawl2
+name: Crawler
 channels:
   - defaults
 dependencies:
