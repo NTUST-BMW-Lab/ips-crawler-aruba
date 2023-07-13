@@ -39,4 +39,6 @@ if __name__ == '__main__':
             list_ap_database = list_show_command(
                 ARUBA_IPADDRESS, token, command)
             ap_data = list_ap_database['Monitored AP Table']
+            for document in ap_data:
+                document['ap_name'] = ap_name
             database.insert_documents(collection_name, ap_data)

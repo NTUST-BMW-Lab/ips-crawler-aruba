@@ -1,13 +1,11 @@
 import os
 from pymongo import MongoClient
-from dotenv import load_dotenv
 
 
 class Database:
     def __init__(self):
-        load_dotenv()
-        self.uri = os.getenv('MONGODB_URI')
-        self.db_name = os.getenv('MONGODB_NAME')
+        self.uri = 'mongodb://140.118.123.112:27017/'
+        self.db_name = 'wifi_crawl'
         self.client = None
         self.db = None
 
@@ -32,7 +30,8 @@ class Database:
                 'curr-rssi': ap['curr-rssi'],
                 'essid': ap['essid'],
                 'bssid': ap['bssid'],
-                'ap-type': ap['ap-type']
+                'ap-type': ap['ap-type'],
+                'ap-name': ap['ap_name']
             }
             ap_documents.append(ap_document)
 
