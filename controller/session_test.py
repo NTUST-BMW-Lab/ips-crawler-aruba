@@ -8,6 +8,7 @@ from show_command import list_show_command
 
 load_dotenv()
 
+
 class TestListShowCommand(ut.TestCase):
     @mock.patch('request.get')
     def test_list_show_command_success(self, mock_get):
@@ -18,8 +19,8 @@ class TestListShowCommand(ut.TestCase):
 
         # Test Input Values
         aopsid = os.getenv('ARUBA_API_TOKEN')
-        aruba_id = '' 
-        command= ''
+        aruba_id = ''
+        command = ''
 
         # Call function to test
         response = list_show_command(aopsid, aruba_id, command)
@@ -31,7 +32,7 @@ class TestListShowCommand(ut.TestCase):
             cookies={'SESSION': aruba_id},
             verify=False
         )
-    
+
     @mock.patch('request.get')
     def test_list_show_command_failure(self, mock_get):
         mock_response = mock.Mock()
@@ -40,8 +41,8 @@ class TestListShowCommand(ut.TestCase):
 
         # Test Input Values
         aopsid = os.getenv('ARUBA_API_TOKEN')
-        aruba_id = '' 
-        command= ''
+        aruba_id = ''
+        command = ''
 
         # Call the function to test
         response = list_show_command(aopsid, aruba_id, command)

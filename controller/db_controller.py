@@ -1,23 +1,48 @@
 import os
-import json
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-load_dotenv()
-mongo_db = os.getenv('MONGO_DB')
-mongo_port = os.getenv('MONGO_PORT')
-mongo_client = os.getenv('MONGO_CLIENT')
 
-client = MongoClient(mongo_client, int(mongo_port))
-db = client[mongo_db]
+class Database:
+    def __init__(self):
+        load_dotenv()
+        self.uri = os.getenv('MONGODB_URI')
+        self.db_name = os.getenv('MONGODB_NAME')
+        self.client = None
+        self.db = None
 
-def put_json_to_db(json_data, collection_name):
-    '''
-    put_json_to_db: Puts JSON Data to Mongo Database
-        Parameters:
-            - json_data: JSON Data
-            - collection_name: Database Collection in which the data will be stored
-    '''
-    collection = db[collection_name]
+    def connect(self):
+        try:
+            if self.uri and self.db_name:
+                self.client = MongoClient(self.uri)
+                self.db = self.client[self.db_name]
+                print("Connected to the MongoDB database successfully!")
+            else:
+                raise ValueError("Missing MongoDB environment variables.")
+        except Exception as e:
+            print("An error occurred while connecting to the database:", e)
 
-    collection.insert_many(json_data)
+    def get_collection(self, collection_name):
+        return self.db[collection_name]
+
+    def insert_documents(self, collection_name, documents):
+        ap_documents = []
+        for ap in documents:
+            ap_document = {
+                'curr-rssi': ap['curr-rssi'],
+                'essid': ap['essid'],
+                'bssid': ap['bssid'],
+                'ap-type': ap['ap-type']
+            }
+            ap_documents.append(ap_document)
+
+        collection = self.get_collection(collection_name)
+        collection.insert_many(ap_documents)
+        print("Documents inserted successfully!")
+
+    def close(self):
+        if self.client:
+            self.client.close()
+            self.client = None
+            self.db = None
+            print("Connection to the MongoDB database closed.")

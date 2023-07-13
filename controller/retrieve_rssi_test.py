@@ -7,6 +7,7 @@ from retrieve_rssi import retrieve_rssi
 
 load_dotenv()
 
+
 class TestRetrieveRSSI(ut.TestCase, response_mock=dict()):
     @mock.patch('request.get')
     def test_retrieve_rssi(self, mock_get):
@@ -17,6 +18,3 @@ class TestRetrieveRSSI(ut.TestCase, response_mock=dict()):
         mock_response.return_value = mock_response
 
         aopsid = os.getenv('ARUBA_API_TOKEN')
-
-        
-
