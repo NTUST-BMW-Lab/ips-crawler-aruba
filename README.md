@@ -53,13 +53,13 @@
   - **Windows**
 
     ```shell
-    conda activate myenv
+    conda activate Crawler_Fix
     ```
 
   - **macOS and Linux**
 
     ```shell
-    source activate myenv
+    source activate Crawler_Fix
     ```
 
     
