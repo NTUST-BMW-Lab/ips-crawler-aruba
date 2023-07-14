@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+import time
 import os
 import json
 import sys
@@ -21,6 +22,7 @@ if __name__ == '__main__':
     database.connect()
 
     collection_name = 'AP'
+    count = 0
 
     ARUBA_USERNAME = os.getenv('ARUBA_USERNAME')
     ARUBA_PASSWORD = os.getenv('ARUBA_PASSWORD')
@@ -41,4 +43,8 @@ if __name__ == '__main__':
             ap_data = list_ap_database['Monitored AP Table']
             for document in ap_data:
                 document['ap_name'] = ap_name
+                document['timestamp'] = time.time()
+                document['count'] = count
             database.insert_documents(collection_name, ap_data)
+        
+        count += 1
