@@ -12,7 +12,7 @@ def list_show_command(aopsid, aruba_id, command):
     '''
     time.sleep(1)
     params = {
-        'url': 'https://' + aopsid + ':4343/v1/configuration/showcommand?command=' + command + '&UIDARUBA' + aruba_id,
+        'url': 'https://' + aopsid + ':4343/v1/configuration/showcommand?command=' + command + '&UIDARUBA=' + aruba_id,
         'aruba_cookie': dict(SESSION=aruba_id)
     }
 

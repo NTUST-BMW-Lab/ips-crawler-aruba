@@ -36,7 +36,9 @@ if __name__ == '__main__':
                     'IY_1F_AP05', 'IY_1F_AP07', 'IY_1F_AP09']
         for ap_name in ap_names:
             token = get_aruba_id(
-                ARUBA_USERNAME, ARUBA_PASSWORD, ARUBA_IPADDRESS)
+                ARUBA_IPADDRESS,
+                ARUBA_USERNAME,
+                ARUBA_PASSWORD)
             command = 'show+ap+monitor+ap-list+ap-name+' + ap_name
             list_ap_database = list_show_command(
                 ARUBA_IPADDRESS, token, command)
@@ -46,5 +48,5 @@ if __name__ == '__main__':
                 document['timestamp'] = time.time()
                 document['count'] = count
             database.insert_documents(collection_name, ap_data)
-        
+
         count += 1
