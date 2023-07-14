@@ -14,7 +14,7 @@ def get_aruba_id(aopsid, id, password):
     aruba_id = ''
     params = {
         'url': 'https://' + aopsid + ':4343/v1/api/login',
-        'payload': 'username=' + id + '&password' + password,
+        'payload': 'username=' + id + '&password=' + password,
         'headers': {
             'Content-type': 'application/json'
         }
