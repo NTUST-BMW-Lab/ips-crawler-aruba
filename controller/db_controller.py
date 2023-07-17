@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 
 class Database:
     def __init__(self):
-        self.uri = 'mongodb://140.118.123.112:27017/'
+        self.uri = 'mongodb://BMW:bmwbmwbmwee809@140.118.123.112:27017/wifi_crawl?directConnection=true&authMechanism=DEFAULT&authSource=admin'
         self.db_name = 'wifi_crawl'
         self.client = None
         self.db = None

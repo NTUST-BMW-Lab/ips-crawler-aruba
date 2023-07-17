@@ -9,7 +9,7 @@
     },
     {
       "ap-type": "valid",
-      "band/chan/ch-width/ht -type": "2.4GHz/6/20MHz/HT",
+      "band/chan/ch-width/ht-type": "2.4GHz/6/20MHz/HT",
       "bssid": "82:3b:fc:af:8c:7c(+)",
       "curr-rssi": "60",
       "essid": "eduroam"
