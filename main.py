@@ -10,6 +10,7 @@ from controller.session_controller import get_aruba_id
 from controller.show_command import list_show_command
 from controller.db_controller import Database
 from controller.show_command_test import list_show_command_test
+from controller.parse_data import parse_data
 
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -55,17 +56,19 @@ if __name__ == '__main__':
                 monitored_ap['ap_name'] = ap_name
                 monitored_ap['timestamp'] = time.time()
                 monitored_ap['count'] = count
+                band, chan, ch_width, ht_type = parse_data(
+                    monitored_ap['band/chan/ch-width/ht-type'])
 
                 essid = monitored_ap['essid']
                 rssi_key = f"rssi_{ap_name}"
 
                 if essid not in data_rows:
                     data_rows[essid] = {
-                        'count': count, 'bssid': monitored_ap['bssid']}
+                        'count': count, 'bssid': monitored_ap['bssid'], 'band': band, 'chan': chan, 'ch_width': ch_width, 'ht_type': ht_type}
 
                 data_rows[essid][rssi_key] = monitored_ap['curr-rssi']
 
         print(data_rows)
         database.insert_documents(collection_name, data_rows)
         count += 1
-        print(count)
+        time.sleep(15)
