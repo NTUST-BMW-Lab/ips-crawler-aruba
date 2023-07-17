@@ -1,11 +1,16 @@
 import json
+import os
+
+from dotenv import load_dotenv
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+
+load_dotenv()
 
 
 class Database:
     def __init__(self):
-        self.uri = 'mongodb://BMW:bmwbmwbmwee809@140.118.123.112:27017/wifi_crawl?directConnection=true&authMechanism=DEFAULT&authSource=admin'
+        self.uri = os.getenv('DB_URI')
         self.db_name = 'wifi_crawl'
         self.client = None
         self.db = None

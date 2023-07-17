@@ -71,4 +71,4 @@ if __name__ == '__main__':
         print(data_rows)
         database.insert_documents(collection_name, data_rows)
         count += 1
-        print(count)
+        time.sleep(15)
