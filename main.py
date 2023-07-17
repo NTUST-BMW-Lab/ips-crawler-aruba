@@ -35,20 +35,20 @@ if __name__ == '__main__':
     print(ARUBA_PASSWORD)
     print(ARUBA_IPADDRESS)
 
-    while count < 3:
+    while True:
         data_rows = {}
         for ap_name in ap_names:
             essids = data_rows.keys()
             for essid in essids:
                 data_rows[essid][f"rssi_{ap_name}"] = ''
-            # token = get_aruba_id(
-            #     ARUBA_IPADDRESS,
-            #     ARUBA_USERNAME,
-            #     ARUBA_PASSWORD)
+            token = get_aruba_id(
+                ARUBA_IPADDRESS,
+                ARUBA_USERNAME,
+                ARUBA_PASSWORD)
             command = 'show+ap+monitor+ap-list+ap-name+' + ap_name
-            # list_ap_database = list_show_command(
-            #     ARUBA_IPADDRESS, token, command)
-            list_ap_database = list_show_command_test(ap_name)
+            list_ap_database = list_show_command(
+                ARUBA_IPADDRESS, token, command)
+            # list_ap_database = list_show_command_test(ap_name)
             ap_data = list_ap_database['Monitored AP Table']
 
             for monitored_ap in ap_data:
