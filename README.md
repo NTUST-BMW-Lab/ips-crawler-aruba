@@ -32,6 +32,7 @@ The Aruba AP-Indoor Crawling Code is a Python-based project that enables crawlin
 5. After the installation is complete, MongoDB will be ready to use.
 #### Set Up Static Ip Configuration
 1. Open the MongoDB configuration file (mongod.conf) using a text editor. The location of this file depends on your operating system and installation method. C:\Program Files\MongoDB\Server\{version}\bin\mongod.cfg on Windows.
+
     ![](https://hackmd.io/_uploads/rytvpxxY2.png)
 
 2. Look for the bindIp setting in the configuration file. By default, it is set to 127.0.0.1, which binds MongoDB to the localhost only. Change the ip to your static IP
@@ -41,7 +42,7 @@ The Aruba AP-Indoor Crawling Code is a Python-based project that enables crawlin
     and then save the file and restart the mongodb services 
 
 3. Then create Firewall rules to allow connection to the mongodb port. Open Advanced security in Windows Defender and then click inbound rules
-![](https://hackmd.io/_uploads/ryWYyWlth.png)
+  ![](https://hackmd.io/_uploads/ryWYyWlth.png)
 
 4. Create new rules to allow connection to port 27017
     ![](https://hackmd.io/_uploads/HysbxbeYn.png)

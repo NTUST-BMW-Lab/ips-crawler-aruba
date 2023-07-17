@@ -1,5 +1,6 @@
-import os
+import json
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 
 class Database:
@@ -24,20 +25,25 @@ class Database:
         return self.db[collection_name]
 
     def insert_documents(self, collection_name, documents):
-        ap_documents = []
-        for ap in documents:
-            ap_document = {
-                'curr-rssi': ap['curr-rssi'],
-                'essid': ap['essid'],
-                'bssid': ap['bssid'],
-                'ap-type': ap['ap-type'],
-                'ap-name': ap['ap_name']
-            }
-            ap_documents.append(ap_document)
-
         collection = self.get_collection(collection_name)
-        collection.insert_many(ap_documents)
-        print("Documents inserted successfully!")
+
+        formatted_documents = []
+        for essid, values in documents.items():
+            document = {
+                '_id': ObjectId(),
+                'essid': essid,
+                'count': values['count']
+            }
+            for ap_name, rssi in values.items():
+                if ap_name not in ['count']:
+                    document[ap_name] = rssi
+            formatted_documents.append(document)
+
+        if formatted_documents:
+            collection.insert_many(formatted_documents)
+            print("Documents inserted successfully!")
+        else:
+            print("No documents to insert.")
 
     def close(self):
         if self.client:
