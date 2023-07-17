@@ -2,24 +2,17 @@
   "Monitored AP Table": [
     {
       "ap-type": "valid",
-      "avg-rssi": "50",
-      "avg-snr": "45",
       "band/chan/ch-width/ht -type": "5GHz/140E/80MHz/VHT",
-      "bss color disabled": "---",
-      "bss-color": "---",
-      "bssid": "48:b4:c3:df: 2e:30(+)",
-      "cl-delay": "0",
+      "bssid": "48:b4:c3:df:2e:30(+)",
       "curr-rssi": "50",
-      "curr-snr": "45",
-      "dos": "disable",
-      "dt/mt": "3555963/3555963",
-      "encr": "wpa2-8021x-aes",
-      "essid": "eduroam",
-      "ibss": "no",
-      "nstas": "1",
-      "partial bss color": "..-",
-      "ut/it": "1/0",
-      "wmacs": "1"
+      "essid": "eduroam"
+    },
+    {
+      "ap-type": "valid",
+      "band/chan/ch-width/ht -type": "2.4GHz/6/20MHz/HT",
+      "bssid": "82:3b:fc:af:8c:7c(+)",
+      "curr-rssi": "60",
+      "essid": "eduroam"
     }
   ]
 }
