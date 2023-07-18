@@ -39,9 +39,8 @@ if __name__ == '__main__':
     while True:
         data_rows = {}
         for ap_name in ap_names:
-            essids = data_rows.keys()
-            for essid in essids:
-                data_rows[essid][f"rssi_{ap_name}"] = ''
+            for essid, chan in data_rows.keys():
+                data_rows[(essid, chan)][f"rssi_{ap_name}"] = ''
             token = get_aruba_id(
                 ARUBA_IPADDRESS,
                 ARUBA_USERNAME,
@@ -56,17 +55,17 @@ if __name__ == '__main__':
                 monitored_ap['ap_name'] = ap_name
                 monitored_ap['timestamp'] = time.time()
                 monitored_ap['count'] = count
-                band, chan, ch_width, ht_type = parse_data(
-                    monitored_ap['band/chan/ch-width/ht-type'])
 
                 essid = monitored_ap['essid']
+                chan = monitored_ap['chan']
+
                 rssi_key = f"rssi_{ap_name}"
 
-                if essid not in data_rows:
-                    data_rows[essid] = {
-                        'count': count, 'bssid': monitored_ap['bssid'], 'band': band, 'chan': chan, 'ch_width': ch_width, 'ht_type': ht_type}
+                if (essid, chan) not in data_rows:
+                    data_rows[(essid, chan)] = {
+                        'count': count, 'bssid': monitored_ap['bssid'], 'chan': monitored_ap['chan'], 'phy-type': monitored_ap['phy-type']}
 
-                data_rows[essid][rssi_key] = monitored_ap['curr-rssi']
+                data_rows[(essid, chan)][rssi_key] = monitored_ap['curr-rssi']
 
         print(data_rows)
         database.insert_documents(collection_name, data_rows)
