@@ -2,7 +2,7 @@
   "Monitored AP Table": [
     {
       "ap-type": "valid",
-      "band/chan/ch-width/ht -type": "5GHz/140E/80MHz/VHT",
+      "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
       "bssid": "48:b4:c3:df:2e:30(+)",
       "curr-rssi": "50",
       "essid": "eduroam"
