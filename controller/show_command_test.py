@@ -7,6 +7,7 @@ def list_show_command_test(ap_names):
             "Monitored AP Table": [
                 {
                     "ap-type": "valid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "44:52:1E:CC:F0:28",
                     "curr-rssi": "65",
@@ -14,6 +15,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "invalid",
+                    'chan': '6',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "FF:4E:5B:01:70:43",
                     "curr-rssi": "73",
@@ -21,6 +23,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "valid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "1C:5A:04:3D:62:DA",
                     "curr-rssi": "60",
@@ -33,6 +36,7 @@ def list_show_command_test(ap_names):
             "Monitored AP Table": [
                 {
                     "ap-type": "invalid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "BC:8B:5B:A0:C6:93",
                     "curr-rssi": "64",
@@ -40,6 +44,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "invalid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "63:C2:E1:54:74:55",
                     "curr-rssi": "57",
@@ -47,6 +52,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "valid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "AD:FA:5A:8C:3D:28",
                     "curr-rssi": "40",
@@ -59,6 +65,7 @@ def list_show_command_test(ap_names):
             "Monitored AP Table": [
                 {
                     "ap-type": "valid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "3A:C4:D3:1D:4B:F1",
                     "curr-rssi": "80",
@@ -66,6 +73,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "invalid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "2.4GHz/6/20MHz/HT",
                     "bssid": "85:A7:19:C3:72:62",
                     "curr-rssi": "71",
@@ -73,6 +81,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "invalid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "2.4GHz/6/20MHz/HT",
                     "bssid": "F0:16:E1:75:7C:2F",
                     "curr-rssi": "67",
@@ -85,6 +94,7 @@ def list_show_command_test(ap_names):
             "Monitored AP Table": [
                 {
                     "ap-type": "invalid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "2F:AD:76:D0:5C:1F",
                     "curr-rssi": "76",
@@ -92,6 +102,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "valid",
+                    'chan': '6',
                     "band/chan/ch-width/ht-type": "2.4GHz/6/20MHz/HT",
                     "bssid": "10:CC:51:85:F9:20",
                     "curr-rssi": "68",
@@ -99,6 +110,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "invalid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "7B:B1:75:AE:99:22",
                     "curr-rssi": "70",
@@ -111,6 +123,7 @@ def list_show_command_test(ap_names):
             "Monitored AP Table": [
                 {
                     "ap-type": "invalid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "E1:21:11:FC:45:14",
                     "curr-rssi": "79",
@@ -118,6 +131,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "invalid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "2.4GHz/6/20MHz/HT",
                     "bssid": "0A:B5:E5:D5:98:40",
                     "curr-rssi": "78",
@@ -125,6 +139,7 @@ def list_show_command_test(ap_names):
                 },
                 {
                     "ap-type": "valid",
+                    'chan': '140E',
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "4D:D7:E5:80:D0:AD",
                     "curr-rssi": "49",
