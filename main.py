@@ -26,8 +26,8 @@ if __name__ == '__main__':
     collection_name = 'AP'
     count = 0
 
-    ap_names = ['IY_1F_AP01', 'IY_1F_AP03',
-                'IY_1F_AP05', 'IY_1F_AP07', 'IY_1F_AP09']
+    ap_names = ['D1_1F_AP01', 'D1_1F_AP02', 'D1_1F_AP03', 'D1_1F_AP04'
+                'D1_1F_AP05', 'D1_1F_AP06', 'D1_1F_AP07', 'D1_1F_AP08']
 
     ARUBA_USERNAME = os.getenv('ARUBA_USERNAME')
     ARUBA_PASSWORD = os.getenv('ARUBA_PASSWORD')
