@@ -51,13 +51,22 @@ if __name__ == '__main__':
             list_ap_database = list_show_command(
                 ARUBA_IPADDRESS, token, command)
             print(ap_name)
+
+            try:
+                for ap in list_ap_database['Monitored AP Table']:
+                    ap['bssid'] = hash_data(ap['bssid'])
+            except Exception as e:
+                print(e)
+
             try:
                 # list_ap_database = list_show_command_test(ap_name)
                 list_ap_database['count'] = count
                 list_ap_database['timestamp'] = datetime.datetime.now()
                 list_ap_database['ap_name'] = ap_name
                 print(list_ap_database)
+
                 database.insert_raw_documents('raw_crawl', list_ap_database)
+
                 ap_data = list_ap_database['Monitored AP Table']
 
                 for monitored_ap in ap_data:
