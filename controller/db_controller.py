@@ -50,6 +50,27 @@ class Database:
         else:
             print("No documents to insert.")
 
+    def insert_raw_documents(self, collection_name, documents):
+        formatted_documents = []
+
+        if 'Monitored AP Table' in documents and isinstance(documents['Monitored AP Table'], list):
+            monitored_ap_table = documents['Monitored AP Table']
+            print(documents)
+
+            # Iterate through each entry in the 'Monitored AP Table' and add 'ap_name' to each document
+            for entry in monitored_ap_table:
+                # Create a new formatted document with 'ap_name' and 'new_column' included
+                entry['ap_name'] = documents['ap_name']
+                entry['count'] = documents['count']
+                entry['timestamp'] = documents['timestamp']
+
+                # Add the formatted document to the list
+                formatted_documents.append(entry)
+
+        print(formatted_documents)
+        collection = self.get_collection(collection_name)
+        collection.insert_many(formatted_documents)
+
     def close(self):
         if self.client:
             self.client.close()
