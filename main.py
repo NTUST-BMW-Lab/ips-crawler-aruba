@@ -12,7 +12,7 @@ from controller.show_command import list_show_command
 from controller.db_controller import Database
 from controller.show_command_test import list_show_command_test
 from controller.parse_data import parse_data
-from controller.hashing import hash_data
+from controller.hashing import create_hash
 
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
             try:
                 for ap in list_ap_database['Monitored AP Table']:
-                    ap['bssid'] = hash_data(ap['bssid'])
+                    ap['bssid'] = create_hash(ap['bssid'])
             except Exception as e:
                 print(e)
 
