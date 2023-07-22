@@ -1,4 +1,4 @@
-![BMW_Logo](https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/0ef2222d-076f-4348-abba-71c4f5108cd1)
+![BMW_Logo](https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/5028a5a5-6372-4106-aef9-e823f7db1222)
 
 #  Aruba AP Indoor Positioning Crawling
 ###### tags: `WiFi`
