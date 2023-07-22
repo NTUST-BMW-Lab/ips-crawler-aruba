@@ -40,16 +40,17 @@ if __name__ == '__main__':
         for ap_name in ap_names:
             for essid, chan in data_rows.keys():
                 data_rows[(essid, chan)][f"rssi_{ap_name}"] = ''
-            try:
-                token = get_aruba_id(
-                    ARUBA_IPADDRESS,
-                    ARUBA_USERNAME,
-                    ARUBA_PASSWORD)
-            except Exception as e:
-                print(e)
-            command = 'show+ap+monitor+ap-list+ap-name+' + ap_name
-            list_ap_database = list_show_command(
-                ARUBA_IPADDRESS, token, command)
+            # try:
+            #     token = get_aruba_id(
+            #         ARUBA_IPADDRESS,
+            #         ARUBA_USERNAME,
+            #         ARUBA_PASSWORD)
+            #     command = 'show+ap+monitor+ap-list+ap-name+' + ap_name
+            #     list_ap_database = list_show_command(
+            #         ARUBA_IPADDRESS, token, command)
+            # except Exception as e:
+            #     print(e)
+            list_ap_database = list_show_command_test(ap_name)
             print(ap_name)
 
             try:
@@ -59,7 +60,7 @@ if __name__ == '__main__':
                 print(e)
 
             try:
-                # list_ap_database = list_show_command_test(ap_name)
+
                 list_ap_database['count'] = count
                 list_ap_database['timestamp'] = datetime.datetime.now()
                 list_ap_database['ap_name'] = ap_name

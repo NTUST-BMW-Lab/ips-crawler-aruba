@@ -1,4 +1,4 @@
-![](https://i.imgur.com/JORnn3y.png =150x)@NTUST
+![](assets/BMW_Logo.png =150x)@NTUST
 #  Aruba AP Indoor Positioning Crawling
 ###### tags: `WiFi`
 
@@ -42,7 +42,7 @@ The Aruba AP-Indoor Crawling Code is a Python-based project that enables crawlin
     and then save the file and restart the mongodb services 
 
 3. Then create Firewall rules to allow connection to the mongodb port. Open Advanced security in Windows Defender and then click inbound rules
-  ![](https://hackmd.io/_uploads/ryWYyWlth.png)
+    ![](https://hackmd.io/_uploads/ryWYyWlth.png)
 
 4. Create new rules to allow connection to port 27017
     ![](https://hackmd.io/_uploads/HysbxbeYn.png)
