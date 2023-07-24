@@ -11,6 +11,7 @@ Made By : Dio (@IdleGoat) and Daniel (@danielandrewr)
   - [Setting up the Conda Environment](#setting-up-the-conda-environment)
   - [Creating Environment Variables with a `.env` File](#creating-environment-variables-with-a-env-file)
   - [Running the Code](#running-the-code)
+- [Progress Log](#progress-log)
 - [References](#references)
 ## Introduction
 ### Description
@@ -192,6 +193,14 @@ Including the `environment.yml` file in the documentation allows others to recre
 
 
 
+## Progress Log
+#### 2023/07/18
+Attending 6G Conference
+
+
+#### 2023/07/20
+Testing Crawling Code in D1
 
 
 ## References
+
