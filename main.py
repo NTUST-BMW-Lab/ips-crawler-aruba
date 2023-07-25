@@ -13,6 +13,7 @@ from controller.db_controller import Database
 from controller.show_command_test import list_show_command_test
 from controller.parse_data import parse_data
 from controller.hashing import create_hash
+from controller.eirp import eirp_test
 
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -40,23 +41,39 @@ if __name__ == '__main__':
         for ap_name in ap_names:
             for essid, chan in data_rows.keys():
                 data_rows[(essid, chan)][f"rssi_{ap_name}"] = ''
-            # try:
-            #     token = get_aruba_id(
-            #         ARUBA_IPADDRESS,
-            #         ARUBA_USERNAME,
-            #         ARUBA_PASSWORD)
-            #     command = 'show+ap+monitor+ap-list+ap-name+' + ap_name
-            #     list_ap_database = list_show_command(
-            #         ARUBA_IPADDRESS, token, command)
-            # except Exception as e:
-            #     print(e)
+            try:
+                token = get_aruba_id(
+                    ARUBA_IPADDRESS,
+                    ARUBA_USERNAME,
+                    ARUBA_PASSWORD)
+                command = 'show+ap+monitor+ap-list+ap-name+' + ap_name
+                list_ap_database = list_show_command(
+                    ARUBA_IPADDRESS, token, command)
+            except Exception as e:
+                print(e)
             list_ap_database = list_show_command_test(ap_name)
-            print(ap_name)
+
+            for ap in list_ap_database['Monitored AP Table']:
+                ap['bssid'] = create_hash(ap['bssid'])
+
+            eirptest = eirp_test()
 
             try:
-                for ap in list_ap_database['Monitored AP Table']:
-                    ap['bssid'] = create_hash(ap['bssid'])
+                command = 'show+ap+active+details'
+                eirptest = list_show_command(ARUBA_IPADDRESS, token, command)
+
+                for ap in eirptest['Active AP Table']:
+                    if ap['Name'] == ap_name:
+                        list_ap_database['Radio0_EIRP'] = ap['Radio 0 Band Ch/EIRP/MaxEIRP/Clients']
+                        list_ap_database['Radio1_EIRP'] = ap['Radio 1 Band Ch/EIRP/MaxEIRP/Clients']
+
+                        break
+                    list_ap_database['Radio0_EIRP'] = ''
+                    list_ap_database['Radio1_EIRP'] = ''
+                print(list_ap_database['Radio0_EIRP'])
+                print(list_ap_database['Radio1_EIRP'])
             except Exception as e:
+
                 print(e)
 
             try:
@@ -91,7 +108,6 @@ if __name__ == '__main__':
 
                     data_rows[(essid, chan)
                               ][rssi_key] = monitored_ap['curr-rssi']
-                    print(data_rows)
                     database.insert_documents(collection_name, data_rows)
                     count += 1
             except Exception as e:

@@ -63,6 +63,8 @@ class Database:
                 entry['ap_name'] = documents['ap_name']
                 entry['count'] = documents['count']
                 entry['timestamp'] = documents['timestamp']
+                entry['Radio0_EIRP'] = documents['Radio0_EIRP']
+                entry['Radio1_EIRP'] = documents['Radio1_EIRP']
 
                 # Add the formatted document to the list
                 formatted_documents.append(entry)
