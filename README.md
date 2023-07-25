@@ -197,11 +197,14 @@ Including the `environment.yml` file in the documentation allows others to recre
 #### 2023/07/18
 Attending 6G Conference
 
+<img src="https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/624071e5-19d2-4be8-8079-99f0d210755d" height="400">
 
 
 
 #### 2023/07/20
 Testing Crawling Code in D1
+
+<img src="https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/07c3a399-1a87-437c-84d7-681da3a41505" height="400">
 
 
 ## References
