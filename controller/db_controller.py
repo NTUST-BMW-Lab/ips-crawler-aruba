@@ -8,7 +8,24 @@ from bson.objectid import ObjectId
 load_dotenv()
 
 
-class Database:
+class DatabaseInterface:
+    def connect(self):
+        pass
+
+    def get_collection(self, collection_name):
+        pass
+
+    def insert_documents(self, collection_name, documents):
+        pass
+
+    def insert_raw_documents(self, collection_name, documents):
+        pass
+
+    def close(self):
+        pass
+
+
+class Database(DatabaseInterface):
     def __init__(self):
         self.uri = os.getenv('DB_URI')
         self.db_name = 'wifi_crawl'
