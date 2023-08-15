@@ -1,4 +1,5 @@
-![](https://i.imgur.com/JORnn3y.png =150x)@NTUST
+![BMW_Logo](https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/5028a5a5-6372-4106-aef9-e823f7db1222)
+
 #  Aruba AP Indoor Positioning Crawling
 ###### tags: `WiFi`
 
@@ -10,6 +11,7 @@ Made By : Dio (@IdleGoat) and Daniel (@danielandrewr)
   - [Setting up the Conda Environment](#setting-up-the-conda-environment)
   - [Creating Environment Variables with a `.env` File](#creating-environment-variables-with-a-env-file)
   - [Running the Code](#running-the-code)
+- [Progress Log](#progress-log)
 - [References](#references)
 ## Introduction
 ### Description
@@ -42,7 +44,7 @@ The Aruba AP-Indoor Crawling Code is a Python-based project that enables crawlin
     and then save the file and restart the mongodb services 
 
 3. Then create Firewall rules to allow connection to the mongodb port. Open Advanced security in Windows Defender and then click inbound rules
-  ![](https://hackmd.io/_uploads/ryWYyWlth.png)
+    ![](https://hackmd.io/_uploads/ryWYyWlth.png)
 
 4. Create new rules to allow connection to port 27017
     ![](https://hackmd.io/_uploads/HysbxbeYn.png)
@@ -191,6 +193,19 @@ Including the `environment.yml` file in the documentation allows others to recre
 
 
 
+## Progress Log
+#### 2023/07/18
+Attending 6G Conference
+
+<img src="https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/624071e5-19d2-4be8-8079-99f0d210755d" height="400">
+
+
+
+#### 2023/07/20
+Testing Crawling Code in D1
+
+<img src="https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/07c3a399-1a87-437c-84d7-681da3a41505" height="400">
 
 
 ## References
+
