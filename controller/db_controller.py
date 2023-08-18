@@ -8,7 +8,24 @@ from bson.objectid import ObjectId
 load_dotenv()
 
 
-class Database:
+class DatabaseInterface:
+    def connect(self):
+        pass
+
+    def get_collection(self, collection_name):
+        pass
+
+    def insert_documents(self, collection_name, documents):
+        pass
+
+    def insert_raw_documents(self, collection_name, documents):
+        pass
+
+    def close(self):
+        pass
+
+
+class Database(DatabaseInterface):
     def __init__(self):
         self.uri = os.getenv('DB_URI')
         self.db_name = 'wifi_crawl'
@@ -49,6 +66,29 @@ class Database:
             print("Documents inserted successfully!")
         else:
             print("No documents to insert.")
+
+    def insert_raw_documents(self, collection_name, documents):
+        formatted_documents = []
+
+        if 'Monitored AP Table' in documents and isinstance(documents['Monitored AP Table'], list):
+            monitored_ap_table = documents['Monitored AP Table']
+            print(documents)
+
+            # Iterate through each entry in the 'Monitored AP Table' and add 'ap_name' to each document
+            for entry in monitored_ap_table:
+                # Create a new formatted document with 'ap_name' and 'new_column' included
+                entry['ap_name'] = documents['ap_name']
+                entry['count'] = documents['count']
+                entry['timestamp'] = documents['timestamp']
+                entry['Radio0_EIRP'] = documents['Radio0_EIRP']
+                entry['Radio1_EIRP'] = documents['Radio1_EIRP']
+
+                # Add the formatted document to the list
+                formatted_documents.append(entry)
+
+        print(formatted_documents)
+        collection = self.get_collection(collection_name)
+        collection.insert_many(formatted_documents)
 
     def close(self):
         if self.client:

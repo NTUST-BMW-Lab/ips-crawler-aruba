@@ -1,21 +1,71 @@
-![](https://i.imgur.com/JORnn3y.png =150x)@NTUST
+![BMW_Logo](https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/5028a5a5-6372-4106-aef9-e823f7db1222)
+
 #  Aruba AP Indoor Positioning Crawling
 ###### tags: `WiFi`
 
 Made By : Dio (@IdleGoat) and Daniel (@danielandrewr)
 ## Table of Contents
-- [Introduction](#introduction)
-- [Installation](#installation)
-  - [Conda Installation](#conda-installation)
-  - [Setting up the Conda Environment](#setting-up-the-conda-environment)
-  - [Creating Environment Variables with a `.env` File](#creating-environment-variables-with-a-env-file)
-  - [Running the Code](#running-the-code)
-- [References](#references)
+- [Aruba AP Indoor Positioning Crawling](#aruba-ap-indoor-positioning-crawling)
+          - [tags: `WiFi`](#tags-wifi)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+    - [Description](#description)
+    - [](#)
+  - [Installation](#installation)
+    - [Mongo DB Installation](#mongo-db-installation)
+      - [Installing MongoDB](#installing-mongodb)
+      - [Set Up Static Ip Configuration](#set-up-static-ip-configuration)
+      - [How to do set up connection to MongoDB](#how-to-do-set-up-connection-to-mongodb)
+    - [Conda Installation](#conda-installation)
+    - [Setting up the Conda Environment](#setting-up-the-conda-environment)
+    - [Creating Environment Variables with a `.env` File](#creating-environment-variables-with-a-env-file)
+    - [Running the Code](#running-the-code)
+  - [Progress Log](#progress-log)
+      - [2023/07/18](#20230718)
+      - [2023/07/20](#20230720)
+  - [References](#references)
 ## Introduction
 ### Description
 The Aruba AP-Indoor Crawling Code is a Python-based project that enables crawling and data extraction specifically from indoor access points (APs) managed by Aruba controllers. The code utilizes Aruba APIs  to gather information such as MAC addresses, signal strength, and other relevant data from the APs for Indoor positioning purposes.
 
+### How The Crawler Works
 
+### Data Fields Description
+
+1. **Ap-Type**
+   - Shows classification of the AP (Access Point).
+
+2. **Curr-rssi**
+   - Current Received Signal Strength Indication (RSSI).
+   - RSSI is a measure of the signal strength at the receiver, indicating the power level of the received signal.
+
+3. **Band**
+   - The frequency range used by the AP (e.g., 2.4 GHz or 5 GHz).
+   - Specifies the wireless frequency at which the AP operates.
+
+4. **Channel**
+   - A specific frequency used for transmitting and receiving data by the AP.
+   - Indicates the channel number or frequency band the AP is using.
+
+5. **Timestamp**
+   - The date and time when the information was recorded.
+   - Provides the exact time when the data was collected.
+
+6. **Essid**
+   - Extended Service Set Identifier (ESSID).
+   - ESSID is a unique name identifier assigned to the wireless network or AP.
+
+7. **EIRP**
+   - Equivalent Isotropically Radiated Power (EIRP).
+   - EIRP represents the amount of power emitted by a wireless device, including both the transmitter power and antenna gain.
+
+8. **Ap-Name**
+   - The Name Of The AP retrieving the data.
+   - Refers to the specific name or identifier of the Access Point.
+
+9. **Bssid**
+   - Basic Service Set Identifier (BSSID).
+   - BSSID is a unique identifier assigned to the wireless access point, used to distinguish it from other APs in the area.
 
 ## Installation
 ### Mongo DB Installation
@@ -42,7 +92,7 @@ The Aruba AP-Indoor Crawling Code is a Python-based project that enables crawlin
     and then save the file and restart the mongodb services 
 
 3. Then create Firewall rules to allow connection to the mongodb port. Open Advanced security in Windows Defender and then click inbound rules
-  ![](https://hackmd.io/_uploads/ryWYyWlth.png)
+    ![](https://hackmd.io/_uploads/ryWYyWlth.png)
 
 4. Create new rules to allow connection to port 27017
     ![](https://hackmd.io/_uploads/HysbxbeYn.png)
@@ -191,6 +241,19 @@ Including the `environment.yml` file in the documentation allows others to recre
 
 
 
+## Progress Log
+#### 2023/07/18
+Attending 6G Conference
+
+<img src="https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/624071e5-19d2-4be8-8079-99f0d210755d" height="400">
+
+
+
+#### 2023/07/20
+Testing Crawling Code in D1
+
+<img src="https://github.com/NTUST-BMW-Lab/ips-crawler-aruba/assets/88525718/07c3a399-1a87-437c-84d7-681da3a41505" height="400">
 
 
 ## References
+

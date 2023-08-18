@@ -27,7 +27,7 @@ def list_show_command_test(ap_names):
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "1C:5A:04:3D:62:DA",
                     "curr-rssi": "60",
-                    "essid": "wifi_network"
+                    "essid": "NTUST_MA_1F"
                 }
             ]
         }
@@ -40,7 +40,7 @@ def list_show_command_test(ap_names):
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "BC:8B:5B:A0:C6:93",
                     "curr-rssi": "64",
-                    "essid": "home_wifi"
+                    "essid": "NTUST_MA_1F"
                 },
                 {
                     "ap-type": "invalid",
@@ -69,7 +69,7 @@ def list_show_command_test(ap_names):
                     "band/chan/ch-width/ht-type": "5GHz/140E/80MHz/VHT",
                     "bssid": "3A:C4:D3:1D:4B:F1",
                     "curr-rssi": "80",
-                    "essid": "wifi_network"
+                    "essid": "NTUST_MA_1F"
                 },
                 {
                     "ap-type": "invalid",
